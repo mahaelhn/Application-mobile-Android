@@ -25,7 +25,6 @@
         -->
         <activity android:name=".NewTechnician"></activity>
         <activity android:name=".NewIntervention"></activity>
-        <activity android:name=".ViewAccounts"></activity>
         <activity android:name=".ViewIntervention"></activity>
         <activity android:name=".Register"></activity>
         <activity android:name=".MenuTech"></activity>

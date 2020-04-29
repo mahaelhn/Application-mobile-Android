@@ -40,13 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/bListeA"
-        android:text="view accounts"
-        android:layout_marginBottom="10dp"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/bListV"
@@ -58,12 +51,13 @@
 
 
     <Button
-        android:id="@+id/bLogOut"
+        android:id="@+id/blogOut"
         android:text="logOut"
         android:layout_marginBottom="10dp"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"/>
+
 
 
 </LinearLayout>

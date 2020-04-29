@@ -68,7 +68,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         values.put(NameUser, "admin");
         values.put(Password, "admin");
-        values.put(ProfilUser,ADMIN );
+        values.put(ProfilUser, ADMIN );
         Log.i("error", "err4");
         currentId = dataBase.insert(Users, null, values);
         Log.i("error", "err5");

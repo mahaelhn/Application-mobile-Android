@@ -16,9 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     //******
-    Button bLogin;
-    EditText etUsername, etPassword;
-    TextView tvRegisterLink;
+   private Button bLogin;
+   private EditText etUsername, etPassword;
+   private TextView tvRegisterLink;
 
     //*********
     //user
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         bLogin.setOnClickListener(this);
+        tvRegisterLink.setOnClickListener(this);
     }
     public void onClick (View v){
             switch (v.getId())    //gets the ID of the view notifed on Click method
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (v.getId())    //gets the ID of the view notifed on Click method
             {
                 case R.id.tvRegisterLink:
-                    startActivity(new Intent(this, Register.class));
+                    startActivity(new Intent(MainActivity.this, Register.class));
                     break;
             }
         }

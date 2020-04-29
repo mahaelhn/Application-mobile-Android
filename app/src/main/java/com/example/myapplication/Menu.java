@@ -1,9 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,11 +13,9 @@ public class Menu extends AppCompatActivity {
 
  private Button bCreate;  //create tech
  private Button bCreateInv;  //create intervention
- private Button bListeA;    //Read Accounts
  private Button bListV;    //Read intervention list
- private Button bDelete;   //delete an account
+ private Button bLogOut;
 
-private TextView menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,24 +25,24 @@ private TextView menu;
 
         bCreate= findViewById(R.id.bCreate);
         bCreateInv= findViewById(R.id.bCreateInv);
-        bListeA= findViewById(R.id.bListeA);
         bListV= findViewById(R.id.bListV);
-        bDelete= findViewById(R.id.bDelete);
+        bLogOut= findViewById(R.id.blogOut);
 
 
-        menu = findViewById(R.id.menu);
+
 
         bCreate.setOnClickListener(bCreateListener);
         bCreateInv.setOnClickListener(bCreateInvListener);
-        bListeA.setOnClickListener(bListeAListener);
         bListV.setOnClickListener(bListVListener);
-        bDelete.setOnClickListener(bDeleteListener);
+        bLogOut.setOnClickListener(blogOutListener);
 
 
     }
     private View.OnClickListener bCreateListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Intent intent1 = new Intent(Menu.this, NewTechnician.class);
+            startActivity(intent1);
 
         }
     };
@@ -51,28 +50,26 @@ private TextView menu;
     private View.OnClickListener bCreateInvListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
+            Intent intent2 = new Intent(Menu.this, NewIntervention.class);
+            startActivity(intent2);
         }
     };
 
-    private View.OnClickListener bListeAListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
 
-        }
-    };
     private View.OnClickListener bListVListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-
-        }
-    };
-    private View.OnClickListener bDeleteListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
+            Intent intent4 = new Intent(Menu.this, ViewIntervention.class);
+            startActivity(intent4);
         }
     };
 
+private View.OnClickListener blogOutListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent5 = new Intent(Menu.this, MainActivity.class);
+        startActivity(intent5);
+    }
+};
 
 }
