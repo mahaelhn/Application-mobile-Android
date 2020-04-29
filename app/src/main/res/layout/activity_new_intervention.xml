@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:background="#7293A8">
+
+
+    <TextView
+        android:id="@+id/menu"
+        android:layout_width="198dp"
+        android:layout_height="53dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="New Intervention"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Name"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Etname"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="NomClient"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/NomClient"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="MobileClient"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/MobileClient"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <TextView
+    android:layout_width="match_parent"
+    android:text="Titre"
+    android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/EtTitre"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Date"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/EtDate"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Description"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/EtDescription"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+    <Button
+        android:id="@+id/bAdd"
+        android:text="Add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bReturn3"
+        android:text="Return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

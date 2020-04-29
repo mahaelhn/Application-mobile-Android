@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewIntervention"
+    android:background="#7293A8">
+
+    <TextView
+        android:id="@+id/menu"
+        android:layout_width="198dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Interventions"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="6dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="100dp"
+        android:text="Techniciens"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lvTechniciens"
+        android:layout_width="99dp"
+        android:layout_height="231dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ListView
+        android:id="@+id/lvInterventions"
+        android:layout_width="112dp"
+        android:layout_height="230dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="46dp"
+        app:layout_constraintStart_toEndOf="@+id/lvTechniciens"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="100dp"
+        android:text="Interventions"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lvCategories"
+        android:layout_width="107dp"
+        android:layout_height="229dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="46dp"
+        app:layout_constraintStart_toEndOf="@+id/lvInterventions"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="100dp"
+        android:text="Categories"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCurrentTechnicien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="31dp"
+        android:text="Tech"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvTechniciens" />
+
+    <TextView
+        android:id="@+id/tvCurrentIntervention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="28dp"
+        android:text="Interv"
+        app:layout_constraintStart_toEndOf="@+id/tvCurrentTechnicien"
+        app:layout_constraintTop_toBottomOf="@+id/lvInterventions" />
+
+    <TextView
+        android:id="@+id/tvCurrentCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="28dp"
+        android:text="Categ"
+        app:layout_constraintStart_toEndOf="@+id/tvCurrentIntervention"
+        app:layout_constraintTop_toBottomOf="@+id/lvCategories" />
+
+    <Button
+        android:id="@+id/btnLinkingTables"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="153dp"
+        android:layout_marginTop="50dp"
+        android:text="Add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentIntervention" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
