@@ -98,6 +98,23 @@ public class MyDataBase  extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+    //add a User
+    public boolean AddUser(String nameUser, String Password, String Profil){
+        boolean res = false;
+        String req = "INSERT INTO Users (nomUser, ageUser) " +
+                "values ('"+nameUser+"', '"+Password+"' , '"+Profil+"') ";
+        try{
+            this.getWritableDatabase().execSQL(req);
+            res = true;
+            Log.i("stepAjout", "User successfully added");
+        }
+        catch(Exception e){
+            Log.i("stepAjout", "Problem insertion new intervention " + e.getMessage());
+        }
+
+        return res;
+    }
+
     // add an intervention
     public  boolean AddIntervention (String NomClient , String mobileClient , String TitreInterv , String DateInterv, String Description ){
         boolean exeInt;
@@ -111,7 +128,7 @@ public class MyDataBase  extends SQLiteOpenHelper {
         }catch(Exception e){
             exeInt = false;
 
-            Log.i("INTERVETION ", "Problem insertion new user"+ e.getMessage());
+            Log.i("INTERVETION ", "Problem insertion new intervention"+ e.getMessage());
         }
         return exeInt;
     }

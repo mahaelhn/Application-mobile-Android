@@ -19,17 +19,7 @@
         android:text="New Intervention"
         android:textSize="25dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:text="Name"
-        android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/Etname"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"/>
 
     <TextView
         android:layout_width="match_parent"

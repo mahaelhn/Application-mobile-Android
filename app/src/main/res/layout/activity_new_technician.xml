@@ -12,11 +12,11 @@
 
     <TextView
         android:id="@+id/menu"
-        android:layout_width="223dp"
+        android:layout_width="300dp"
         android:layout_height="78dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:text="New tech"
+        android:text="New technician"
         android:textSize="40dp" />
 
 
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/EUsername"
+        android:id="@+id/EUsername1"
         android:layout_width="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content" />
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/EPassword"
+        android:id="@+id/EPassword1"
         android:layout_width="match_parent"
         android:layout_marginBottom="10dp"
         android:inputType="textPassword"
@@ -49,13 +49,13 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/EProfil"
+        android:id="@+id/EProfil2"
         android:layout_width="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/badd"
+        android:id="@+id/badd1"
         android:text="ADD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
