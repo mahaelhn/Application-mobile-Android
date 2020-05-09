@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="377dp"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/Tache" />
+
+    <TextView
+        android:id="@+id/Category"
+        android:layout_width="150dp"
+        android:layout_height="53dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Category"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Id Category"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/IdCategory"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Name Category"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/NameCategory"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/bAdd8"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Add" />
+
+    <Button
+        android:id="@+id/bSave8"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_toRightOf="@id/bAdd"
+        android:text="Save Default Category" />
+
+    <Button
+        android:id="@+id/bRead8"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:text="Show info" />
+
+    <Button
+        android:id="@+id/bUpdate8"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/bDelete8"
+        android:layout_width="386dp"
+        android:layout_height="46dp"
+        android:text="Delete" />
+
+    <Button
+        android:id="@+id/bReturn8"
+        android:layout_width="391dp"
+        android:layout_height="38dp"
+        android:layout_toRightOf="@id/bDelete1"
+        android:text="Return" />
+
+    <TextView
+        android:id="@+id/TextView8"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:text=""
+        android:textColor="#BB0B0B" />
+
+
+</LinearLayout>
