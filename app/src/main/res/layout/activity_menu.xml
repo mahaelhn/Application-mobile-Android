@@ -26,7 +26,7 @@
 
     <Button
         android:id="@+id/bCreate"
-        android:text="Create technician"
+        android:text="Technician"
         android:layout_marginBottom="10dp"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
@@ -34,16 +34,30 @@
 
     <Button
         android:id="@+id/bCreateInv"
-        android:text="Create new intervention"
+        android:text="Intervention"
         android:layout_marginBottom="10dp"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"/>
 
-
+    <Button
+        android:id="@+id/bCreateCateg"
+        android:text="Categories"
+        android:layout_marginBottom="10dp"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
     <Button
         android:id="@+id/bListV"
-        android:text="View intervention"
+        android:text="Fiche Activity"
+        android:layout_marginBottom="10dp"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/bDeleteAll"
+        android:text="Delete All"
         android:layout_marginBottom="10dp"
         android:layout_width="170dp"
         android:layout_height="wrap_content"

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    package="com.example.myapplication"
+    xmlns:tools="http://schemas.android.com/tools"
     android:name="myapplication.App"
-    tools:overrideLibrary="myapplication.App"
-    app:showAsAction="never">
+    package="com.example.myapplication"
+    app:showAsAction="never"
+    tools:overrideLibrary="myapplication.App">
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
 
     <application
         android:allowBackup="true"
@@ -16,19 +19,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <uses-library
-       android:name="com.google.android.maps"
+            android:name="com.google.android.wearable"
             android:required="true" />
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <activity android:name=".NewTechnician"></activity>
-        <activity android:name=".NewIntervention"></activity>
-        <activity android:name=".ViewIntervention"></activity>
-        <activity android:name=".Register"></activity>
-        <activity android:name=".MenuTech"></activity>
-        <activity android:name=".Menu"></activity>
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".NewCategory"
+            android:label="@string/title_activity_new_category">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="true" />
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <activity android:name=".NewTechnician" />
+        <activity android:name=".NewIntervention" />
+        <activity android:name=".ViewIntervention" />
+        <activity android:name=".Register" />
+        <activity android:name=".MenuTech" />
+        <activity android:name=".Menu" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -16,13 +17,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     //user
     String Users = TablesData.USERES_TABLE;
     String NameUser= TablesData.USERNAME;
-    String Password = TablesData.USERPASSWORD;
+    String Password = TablesData.PASSWORD;
     String IdUser = TablesData.USERID;
-    String ProfilUser = TablesData.USERPROFIL;
+    String ProfilUser = TablesData.PROFIL;
     private final String TECHNICIEN= TablesData.USERTECH;
     private final String ADMIN= TablesData.USERADMIN;
 
-    Button bRegister;
+    Button bRegister, bReturn2;
     EditText EtUsername, EtPassword, EtProfil;
 
 
@@ -37,9 +38,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         EtPassword = (EditText) findViewById(R.id.EtPassword);
 
         bRegister = (Button) findViewById(R.id.bRegister);
-
+        bReturn2 = (Button) findViewById(R.id.bReturn2);
         bRegister.setOnClickListener(this);
-
+        bReturn2.setOnClickListener(this);
     }
 
     @Override
@@ -48,8 +49,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         { case R.id.bRegister:
             Log.i("error", "err1");
             AddUsers();
+           // Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
             Log.i("error", "err2");
             break;
+            case R.id.bReturn2:
+                Intent intent = new Intent(Register.this, Menu.class);
+                startActivity(intent);
+                break;
         }
     }
 
@@ -76,3 +82,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     }
 }
+/* //inset a user
+    private void AddUser()
+    {
+        // Gets the database in write mode
+        SQLiteDatabase db = myDBHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(userNameColumn, "maha");
+        values.put(userPasswordColumn, "maha");
+        values.put(userProfilColumn,TECHNICIEN );
+        long Id = db.insert(usersTableName, null, values);
+    }*/

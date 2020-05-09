@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     //******
    private Button bLogin;
    private EditText etUsername, etPassword;
@@ -24,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //user
     String Users = TablesData.USERES_TABLE;
     String UserName = TablesData.USERNAME;
-    String Password = TablesData.USERPASSWORD;
+    String Password = TablesData.PASSWORD;
     String IdUser = TablesData.USERID;
-    String ProfilUser = TablesData.USERPROFIL;
+    String ProfilUser = TablesData.PROFIL;
     private final String TECHNICIEN = TablesData.USERTECH;
     private final String ADMIN = TablesData.USERADMIN;
 
@@ -49,8 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void onClick (View v){
             switch (v.getId())    //gets the ID of the view notifed on Click method
-            {
-                case R.id.bLogin:
+            {       //***********login***********//
+                    case R.id.bLogin:
                     Log.i("error", "Logger1");
                     String name = etUsername.getText().toString().trim();  //trim() reduire le string (espace)
                     String password = etPassword.getText().toString().trim();
@@ -59,27 +60,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     //startActivity(new Intent(this, Menu.class));
                     break;
-            }
-            switch (v.getId())    //gets the ID of the view notifed on Click method
-            {
-                case R.id.tvRegisterLink:
+                    //**************Register*******************//
+                    case R.id.tvRegisterLink:
                     startActivity(new Intent(MainActivity.this, Register.class));
                     break;
             }
         }
-
-
-
-public void authentication(String name, String password)
+        //*****************authentification**********************//
+    public void authentication(String name, String password)
         {
           /*  SQLiteOpenHelper database = new Database_class(this);
             SQLiteDatabase db = new database.getReadableDatabase();*/
             SQLiteOpenHelper db = new MyDataBase(this);
             SQLiteDatabase dataB = db.getReadableDatabase();
 
-        String query = "SELECT * FROM " + Users +
-        " WHERE " + Password +"='"+password+
-        "' AND "+UserName + "= '"+ name+"'";
+            String query = "SELECT * FROM " + Users +
+           " WHERE " + Password +"='"+password+
+            "' AND "+UserName + "= '"+ name+"'";
 
         Log.i("error","err1");
         Cursor cursor = dataB.rawQuery(query, null);
@@ -101,7 +98,7 @@ public void authentication(String name, String password)
 
         if(currentProfil.equals(TECHNICIEN))
         {
-        Toast.makeText(this, "Technicien: "+currentName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome Technician: "+currentName, Toast.LENGTH_SHORT).show();
         cursor.close();
         Intent intent = new Intent(this, MenuTech.class);
 
@@ -113,7 +110,7 @@ public void authentication(String name, String password)
         }
         else
         {
-       Toast.makeText(this, "Admin: "+currentName, Toast.LENGTH_SHORT).show();
+       Toast.makeText(this, "Welcome Admin: "+currentName, Toast.LENGTH_SHORT).show();
         cursor.close();
         Intent intent = new Intent(this, Menu.class);
 

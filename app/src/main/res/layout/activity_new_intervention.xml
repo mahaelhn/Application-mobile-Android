@@ -6,17 +6,22 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:layout_width="match_parent"
-    android:background="#7293A8">
 
+    android:layout_width="match_parent"
+   >
+
+    <ImageView
+        android:layout_width="366dp"
+        android:layout_height="33dp"
+        app:srcCompat="@drawable/Tache" />
 
     <TextView
         android:id="@+id/menu"
-        android:layout_width="198dp"
-        android:layout_height="53dp"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:text="New Intervention"
+        android:text="Intervention"
         android:textSize="25dp" />
 
 
@@ -29,9 +34,9 @@
     <EditText
         android:id="@+id/NomClient"
         android:layout_width="match_parent"
+        android:layout_height="28dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"/>
+        android:inputType="text" />
 
     <TextView
         android:layout_width="match_parent"
@@ -41,9 +46,9 @@
     <EditText
         android:id="@+id/MobileClient"
         android:layout_width="match_parent"
+        android:layout_height="32dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"/>
+        android:inputType="text" />
 
     <TextView
     android:layout_width="match_parent"
@@ -53,8 +58,8 @@
     <EditText
         android:id="@+id/EtTitre"
         android:layout_width="match_parent"
+        android:layout_height="27dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
         android:inputType="text" />
 
     <TextView
@@ -65,9 +70,9 @@
     <EditText
         android:id="@+id/EtDate"
         android:layout_width="match_parent"
+        android:layout_height="32dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"/>
+        android:inputType="text" />
     <TextView
         android:layout_width="match_parent"
         android:text="Description"
@@ -76,19 +81,63 @@
     <EditText
         android:id="@+id/EtDescription"
         android:layout_width="match_parent"
+        android:layout_height="26dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"/>
+        android:inputType="text" />
+    <TextView
+        android:layout_width="match_parent"
+        android:text="ExecInterv"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/EtExecInterv"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:layout_marginBottom="10dp"
+        android:inputType="text" />
+
     <Button
         android:id="@+id/bAdd"
-        android:text="Add"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="36dp"
+        android:text="Add" />
+
+    <Button
+        android:id="@+id/bSave"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_toRightOf="@id/bAdd"
+        android:text="Save Default client" />
+
+    <Button
+        android:id="@+id/bRead4"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:text="Show info" />
+
+    <Button
+        android:id="@+id/bUpdate1"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/bDelete1"
+        android:layout_width="386dp"
+        android:layout_height="46dp"
+        android:text="Delete" />
+
     <Button
         android:id="@+id/bReturn3"
-        android:text="Return"
+        android:layout_width="391dp"
+        android:layout_height="38dp"
+        android:layout_toRightOf="@id/bDelete1"
+        android:text="Return" />
+
+    <TextView
+        android:id="@+id/TextView7"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="28dp"
+        android:text=""
+        android:textColor="#BB0B0B" />
 </LinearLayout>

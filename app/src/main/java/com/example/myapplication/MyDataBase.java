@@ -13,17 +13,17 @@ import java.util.ArrayList;
 public class MyDataBase  extends SQLiteOpenHelper {
 
     //Data
-    public  final static String DBNAME = "TechWorkspace";
+    public  final static String DB_NAME = "Techworkspace.db";
     public final static int DBVERSION = 1;
     public  MyDataBase(@Nullable Context context) {
-        super(context, DBNAME, null, DBVERSION);
+        super(context, DB_NAME, null, DBVERSION);
     }
     //user
     String Users = TablesData.USERES_TABLE;
     String UserName = TablesData.USERNAME;
-    String Password = TablesData.USERPASSWORD;
+    String Password = TablesData.PASSWORD;
     String IdUser = TablesData.USERID;
-    String ProfilUser = TablesData.USERPROFIL;
+    String ProfilUser = TablesData.PROFIL;
     //Intervention
     String Intervention= TablesData.INTERVENTION_TABLE;
     String IdIntev = TablesData.IdInterv;
@@ -48,7 +48,7 @@ public class MyDataBase  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db)
     {
         //***************create User Table*****************
-        String  req1 =  "CREATE TABLE "+Users+"( " +
+        String  req1 =  "CREATE TABLE IF NOT EXISTS "+Users+"( " +
                 IdUser+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 UserName+" TEXT NOT NULL,"+
                 Password + " TEXT NOT NULL," +
@@ -57,10 +57,10 @@ public class MyDataBase  extends SQLiteOpenHelper {
 
         // Execute the SQL statement
         db.execSQL(req1);
-        Log.i("USERS", "data base is created successfully ");
+        Log.i("USERS", "Table is created successfully ");
 
         //*********create intervention table**********
-        String  req2 =  "CREATE TABLE "+Intervention+"( " +
+        String  req2 =  "CREATE TABLE IF NOT EXISTS "+Intervention+"( " +
                 IdIntev+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 NomClient+" TEXT NOT NULL,"+
                 MobileClient+" INTEGER NOT NULL,"+
@@ -72,19 +72,19 @@ public class MyDataBase  extends SQLiteOpenHelper {
 
         // Execute the SQL statement
         db.execSQL(req2);
-        Log.i("INTERVENTION", "data base is created successfully ");
+        Log.i("INTERVENTION", "Table is created successfully ");
         //*************create categories table*********
 
-        String  req3=  "CREATE TABLE "+categories+"( " +
+        String  req3=  "CREATE TABLE IF NOT EXISTS "+categories+"( " +
                 IdCateg +" INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 NameCateg +" TEXT NOT NULL"+
                 " );";
 
         // Execute the SQL statement
         db.execSQL(req3);
-        Log.i("CATEGORIES", "data base is created successfully ");
+        Log.i("CATEGORIES", "Table is created successfully ");
         //******create intervention tech categories table*********
-        String  req4 =  "CREATE TABLE "+InterCategTech +"( " +
+        String  req4 =  "CREATE TABLE IF NOT EXISTS "+InterCategTech +"( " +
                 InterCategTechIdTech+" INTEGER ,"+
                 InterCategTechIdInterv+" INTEGER ,"+
                 InterCategTechIdCateg + " INTEGER"+
@@ -92,35 +92,36 @@ public class MyDataBase  extends SQLiteOpenHelper {
 
         // Execute the SQL statement
         db.execSQL(req4);
+        Log.i("InterCategTech", "Table is created successfully ");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    //add a User
-    public boolean AddUser(String nameUser, String Password, String Profil){
+    //add a User*****************
+    public boolean AddUser(String UserName, String Password, String Profil){
         boolean res = false;
-        String req = "INSERT INTO Users (nomUser, ageUser) " +
-                "values ('"+nameUser+"', '"+Password+"' , '"+Profil+"') ";
+        String req = "INSERT INTO Users (UserName, Password, ProfilUser) " +
+                "values ('"+UserName+"', '"+Password+"' , '"+Profil+"') ";
         try{
             this.getWritableDatabase().execSQL(req);
             res = true;
-            Log.i("stepAjout", "User successfully added");
+            Log.i("stepAdd", "User successfully added");
         }
         catch(Exception e){
-            Log.i("stepAjout", "Problem insertion new intervention " + e.getMessage());
+            Log.i("stepAdd", "Problem insertion new intervention " + e.getMessage());
         }
 
         return res;
     }
 
-    // add an intervention
-    public  boolean AddIntervention (String NomClient , String mobileClient , String TitreInterv , String DateInterv, String Description ){
+    // add an intervention************
+    public  boolean AddIntervention (String NomClient , int mobileClient , String TitreInterv , String DateInterv, String Description, int ExecInterv){
         boolean exeInt;
 
-        String req = "insert into INTERVENTION (NomClient, mobileClient, TitreInterv ,DateInterv , Description) " +
-                "values ('" + NomClient + "' , '" + mobileClient +"' , '" +TitreInterv+ "' , '" +DateInterv+ "' , '" +Description+ "')";
+        String req = "INSERT INTO  Intervention (NomClient, mobileClient, TitreInterv ,DateInterv , Description, ExecInterv) " +
+                "values ('" + NomClient + "' , '" + mobileClient +"' , '" +TitreInterv+ "' , '" +DateInterv+ "' , '" +Description+ "', '" +ExecInterv+ "')";
         try{
             this.getWritableDatabase().execSQL(req);
             exeInt=true;
@@ -132,12 +133,13 @@ public class MyDataBase  extends SQLiteOpenHelper {
         }
         return exeInt;
     }
-    //add a category
-    public  boolean AddCategory (String NameCateg ){
+
+    //add a category**********
+    public  boolean AddCategory (int IdCateg, String NameCateg ){
         boolean exeInt ;
 
-        String req = "insert into INTERVENTION (NameCateg) " +
-                "values ('" + NameCateg + "')";
+        String req = "insert into categories (IdCateg, NameCateg) " +
+                "values ('"+IdCateg+"', '"+NameCateg+"')";
         try{
             this.getWritableDatabase().execSQL(req);
             exeInt=true;
@@ -149,42 +151,45 @@ public class MyDataBase  extends SQLiteOpenHelper {
         }
         return exeInt;
     }
-    //view categories
+
+    //view categories****************
     public ArrayList<Category> getAllCategories(){
-        ArrayList<Category> l = new ArrayList<>();
-        String req = "SELECT idInt FROM CATEGORIES";
+        ArrayList<Category> list = new ArrayList<>();
+        String req = "SELECT * FROM categories";
         Cursor c = this.getReadableDatabase().rawQuery(req,null);
 
         c.moveToFirst();
         while(c.isAfterLast() != true){
             Category c1;
             c1 = new Category(c.getInt(0), c.getString(1));
-            l.add(c1);
-            c.moveToNext();
-        }
-        c.close();
-        return l;
-    }
-    //view intervention
-    public ArrayList<Intervention> getAllInterventions(){
-        ArrayList<Intervention> list = new ArrayList<>();
-        String req = "SELECT idInt FROM INTERVENTION";
-        Cursor c = this.getReadableDatabase().rawQuery(req,null);
-
-        c.moveToFirst();
-        while(c.isAfterLast() != true){
-            Intervention i1 = new Intervention(c.getInt(0), c.getString(1), c.getString(2),c.getString(3), c.getString(4), c.getString(5));
-            list.add(i1);
+            list.add(c1);
             c.moveToNext();
         }
         c.close();
         return list;
     }
-   //get Users
-   public ArrayList<User> getAllUser() {
+
+    //view intervention******************
+    public ArrayList<Intervention> getAllInterventions(){
+        ArrayList<Intervention> list1 = new ArrayList<>();
+        String req = "SELECT * FROM intervention";
+        Cursor c = this.getReadableDatabase().rawQuery(req,null);
+
+        c.moveToFirst();
+        while(c.isAfterLast() != true){
+            Intervention i1 = new Intervention(c.getInt(0), c.getString(1), c.getString(2),c.getString(3), c.getString(4), c.getString(5));
+            list1.add(i1);
+            c.moveToNext();
+        }
+        c.close();
+        return list1;
+    }
+
+    //get Users******************
+    public ArrayList<User> getAllUser() {
 
        ArrayList<User> list = new ArrayList<User>();
-       String req = "SELECT * FROM USERS";
+       String req = "SELECT * FROM Users";
 
        Cursor c = this.getReadableDatabase().rawQuery(req, null);
        c.moveToFirst();
@@ -197,34 +202,37 @@ public class MyDataBase  extends SQLiteOpenHelper {
        return list;
    }
 
-
-   //Delete User
-   public boolean deleteUser (int IdUser) {
+    //Delete User*************
+    public boolean deleteUser (String UserName) {
        boolean res = false;
-       String req = "DELETE FROM Users where IdUser= '"  + IdUser+ "'";
+       String req = "DELETE FROM Users where UserName= '"  + UserName+ "'";
        try{
            this.getWritableDatabase().execSQL(req);
            res = true;
-           Log.i("stepAjout", "successfully added");
+           Log.i("stepDELETE", "deleted successfully ");
        }
        catch(Exception e){
-           Log.i("stepAjout", "problem insertion new user " + e.getMessage());
+           Log.i("stepDELETE", "problem to delete a user " + e.getMessage());
        }
 
        return res;
    }
-   //get One user
-    public User getOneUser(int IdUser)
+
+
+    //get One user*****************
+    public User getOneUser(String UserName)
     {
         User us1 = null;
-        String req = "SELECT * FROM USERS where IdUser= '"  + IdUser+ "'";
+        String req = "SELECT * FROM USERS where UserName= '"  + UserName+ "'";
         return us1;
     }
-   //Update
-    public void UpdateUserName(int Id, String Username)
+
+    //Update**********************
+    public void Update(String Username, String Password)
     {
-        String req = "UPDATE USERS SET UserName = "+"'UserName' "+ "WHERE IdUser = "+ IdUser;
+        String req = "UPDATE Users SET Password = "+"'Password' "+ "WHERE UserName = "+ Username;
         this.getWritableDatabase().execSQL(req);
+
     }
 
 }

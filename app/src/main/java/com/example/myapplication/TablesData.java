@@ -20,14 +20,14 @@ public class TablesData {
     //Users Table
     public static final String USERES_TABLE = "users";
     public static final String USERID = "IdUser";
-    public static final String USERNAME = "NameUser";
-    public static final String USERPASSWORD = "Password";
-    public static final String USERPROFIL ="ProfilUser";
+    public static final String USERNAME = "UserName";
+    public static final String PASSWORD = "Password";
+    public static final String PROFIL ="ProfilUser";
     public static final String USERTECH="Technicien";
     public static final String USERADMIN="Admin";
 
     //Intervention Table
-    public static final String INTERVENTION_TABLE = "interventions";
+    public static final String INTERVENTION_TABLE = "Intervention";
     public static final String IdInterv = "IdInterv";
     public static final String NomClient = "NomClient";
     public static final String MobileClient = "MobileClient";

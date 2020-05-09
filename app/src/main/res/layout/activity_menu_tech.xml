@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".MenuTech">
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:background="@drawable/back">
+
+    <ImageView
+        android:layout_width="393dp"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/man" />
+
+    <TextView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="78dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Menu Tech"
+        android:textColor="#ffffffff"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/bDone"
+        android:text="Intervention done"
+        android:layout_marginBottom="10dp"
+        android:layout_width="170dp"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/bNotDone"
+        android:text="Intervention not done"
+        android:layout_marginBottom="10dp"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/blogOut2"
+        android:text="logOut"
+        android:layout_marginBottom="10dp"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
 
 
-</androidx.wear.widget.BoxInsetLayout>
+
+</LinearLayout>
