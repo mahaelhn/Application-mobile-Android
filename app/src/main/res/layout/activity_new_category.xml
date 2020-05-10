@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="377dp"
         android:layout_height="120dp"
-        app:srcCompat="@drawable/Tache" />
+        app:srcCompat="@drawable/category" />
 
     <TextView
         android:id="@+id/Category"

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:name="myapplication.App"
     package="com.example.myapplication"
-    app:showAsAction="never"
-    tools:overrideLibrary="myapplication.App">
+>
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -26,9 +25,7 @@
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
+
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld

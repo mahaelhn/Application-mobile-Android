@@ -11,9 +11,11 @@
     <ImageView
         android:layout_width="366dp"
         android:layout_height="33dp"
-        android:src="@drawable/Tache"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="25dp"
+        android:layout_marginBottom="92dp"
+        android:src="@drawable/category"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
