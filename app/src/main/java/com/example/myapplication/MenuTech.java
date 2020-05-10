@@ -31,16 +31,16 @@ public class MenuTech extends AppCompatActivity {
     private View.OnClickListener bDoneListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-          //  Intent intent1 = new Intent(MenuTech.this,);
-          //  startActivity(intent1);
+            Intent intent1 = new Intent(MenuTech.this, InterventionDone.class);
+            startActivity(intent1);
 
         }
     };
     private View.OnClickListener bNotDoneListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //  Intent intent1 = new Intent(MenuTech.this,);
-            //  startActivity(intent1);
+            Intent intent2 = new Intent(MenuTech.this, InterventionNotDone.class);
+            startActivity(intent2);
 
         }
     };
