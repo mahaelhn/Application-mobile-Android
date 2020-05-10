@@ -30,32 +30,12 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity
-            android:name=".InterventionNotDone"
-            android:label="@string/title_activity_intervention_not_done">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".InterventionDone"
-            android:label="@string/title_activity_intervention_done">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <uses-library
-            android:name="com.google.android.maps"
-            android:required="true" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
+        <activity android:name=".InterventionNotDone" />
+        <activity android:name=".InterventionDone" />
         <activity android:name=".NewCategory" />
         <activity android:name=".NewTechnician" />
         <activity android:name=".NewIntervention" />
