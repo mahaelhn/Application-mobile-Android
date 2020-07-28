@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class InterventionDone extends AppCompatActivity {
-
     int nbInterventions=0;
     ListView lvDoneInterventions;
 
@@ -54,7 +53,7 @@ public class InterventionDone extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intervention_done);
-        initializer();
+        ShowUp();
 
         lvDoneInterventions.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
@@ -69,7 +68,7 @@ public class InterventionDone extends AppCompatActivity {
 
                 Toast toast = Toast.makeText(InterventionDone.this, "Intervention Undone", Toast.LENGTH_SHORT);
                 toast.show();
-                initializer();
+                ShowUp();
 
 
             }
@@ -77,7 +76,7 @@ public class InterventionDone extends AppCompatActivity {
 
     }
 
-    private void initializer()
+    private void ShowUp()
     {
         nbInterventions=0;
         DoneInterventionsList = new ArrayList<String>();
@@ -103,16 +102,12 @@ public class InterventionDone extends AppCompatActivity {
     {
         SQLiteOpenHelper dba = new MyDataBase(this);
         SQLiteDatabase dataB1 = dba.getReadableDatabase();
-
-
         String query = "SELECT * FROM " +InterCategTech+ " WHERE "+InterCategTechIdTech+ "= "+Id2;
 
         Cursor cursor = dataB1.rawQuery(query, null);
 
         int idInterventColumnIndex = cursor.getColumnIndex(InterCategTechIdInterv);
         int idCategColumnIndex = cursor.getColumnIndex(InterCategTechIdCateg);
-
-
         while (cursor.moveToNext())
         {
             int currentInterventionId = cursor.getInt( idInterventColumnIndex );
@@ -129,20 +124,13 @@ public class InterventionDone extends AppCompatActivity {
     {
         SQLiteOpenHelper dba = new MyDataBase(this);
         SQLiteDatabase dataB1 = dba.getReadableDatabase();
-
-
-        String query = "SELECT * FROM " + Intervention +
-                " WHERE "+IdIntev+ "= "+intervId +
-                " AND " + ExecInterv+"=1";
-
+        String query = "SELECT * FROM " + Intervention + " WHERE "+IdIntev+ "= "+intervId + " AND " + ExecInterv+"=1";
 
         Cursor cursor =dataB1.rawQuery(query, null);
-
         int  interventionTitleColumnIndex = cursor.getColumnIndex(TitreInterv);
 
         if(  cursor.moveToNext())
         {
-
             String currentInterventionTitle = cursor.getString(interventionTitleColumnIndex );
             //  tvMyWork.append(currentInterventionTitle + "\n");
             DoneInterventionsList.add(currentInterventionTitle);

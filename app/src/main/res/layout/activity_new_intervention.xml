@@ -123,7 +123,7 @@
     <Button
         android:id="@+id/bDelete1"
         android:layout_width="386dp"
-        android:layout_height="46dp"
+        android:layout_height="43dp"
         android:text="Delete" />
 
     <Button

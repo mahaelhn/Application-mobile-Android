@@ -1,8 +1,6 @@
 package com.example.myapplication;
 
 public class Category {
-
-
     public int IdCateg ;
     public  String NameCateg;
 
@@ -13,7 +11,5 @@ public class Category {
     public String toString(){
 
         return IdCateg + "\n" + NameCateg;
-
-
     }
 }

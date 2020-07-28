@@ -1,5 +1,4 @@
 package com.example.myapplication;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,14 +14,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    //******
+    //******widgets
    private Button bLogin;
    private EditText etUsername, etPassword;
    private TextView tvRegisterLink;
-
-    //*********
-    //user
+   //user
     String Users = TablesData.USERES_TABLE;
     String UserName = TablesData.USERNAME;
     String Password = TablesData.PASSWORD;
@@ -30,9 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String ProfilUser = TablesData.PROFIL;
     private final String TECHNICIEN = TablesData.USERTECH;
     private final String ADMIN = TablesData.USERADMIN;
-
-
-
     //**********************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String password = etPassword.getText().toString().trim();
                     Log.i("error", "Logger");
                     authentication(name, password);
-
                     //startActivity(new Intent(this, Menu.class));
                     break;
                     //**************Register*******************//
@@ -68,20 +60,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         //*****************authentification**********************//
     public void authentication(String name, String password)
-        {
-          /*  SQLiteOpenHelper database = new Database_class(this);
+        {/*  SQLiteOpenHelper database = new Database_class(this);
             SQLiteDatabase db = new database.getReadableDatabase();*/
             SQLiteOpenHelper db = new MyDataBase(this);
             SQLiteDatabase dataB = db.getReadableDatabase();
-
-            String query = "SELECT * FROM " + Users +
-           " WHERE " + Password +"='"+password+
-            "' AND "+UserName + "= '"+ name+"'";
-
-        Log.i("error","err1");
+     String query = "SELECT * FROM " + Users + " WHERE " + Password +"='"+password+ "' AND "+UserName + "= '"+ name+"'";
+         Log.i("error","err1");
         Cursor cursor = dataB.rawQuery(query, null);
         Log.i("error","err2");
-
         if(cursor.getCount()>=1)
         {
         cursor.moveToNext();

@@ -99,10 +99,7 @@ public class NewCategory extends AppCompatActivity implements View.OnClickListen
                     TextView8.setText("No Record Found");
                 }
                 break;
-
-
-
-            //Update*****************
+         //Update*****************
             case R.id.bUpdate8:
                 SQLiteOpenHelper db1 = new MyDataBase(this);
                 SQLiteDatabase dataB = db1.getWritableDatabase();

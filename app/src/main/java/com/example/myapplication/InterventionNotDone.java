@@ -58,9 +58,7 @@ public class InterventionNotDone extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intervention_not_done);
-     initializer();
-
-
+     Show();
 
      lvUndoneInterventions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
          @Override
@@ -69,14 +67,13 @@ public class InterventionNotDone extends AppCompatActivity {
              String selectedItem = (String) parent.getItemAtPosition(position);
              markInterventionDone(selectedItem);
 
-             String number= findClientNumber(selectedItem);
-             Log.i("AEW","My num3: "+number);
-             dialPhoneNumber(number);
+             String number= GetClientNumber(selectedItem); //Get the number of the client
+             Log.i("new","number: "+number);
+             CallPhoneNumber(number); //call client
 
              Toast toast = Toast.makeText(InterventionNotDone.this, "Intervention Done", Toast.LENGTH_SHORT);
              toast.show();
-
-             initializer();
+             Show();
          }
      });
     }
@@ -84,7 +81,7 @@ public class InterventionNotDone extends AppCompatActivity {
 
 
 
-    private void initializer()
+    private void Show()
     {
         UndoneInterventionsList = new ArrayList<String>();
         nbInterventions=0;
@@ -111,11 +108,8 @@ public class InterventionNotDone extends AppCompatActivity {
         String query = "SELECT * FROM " +InterCategTech + " WHERE "+InterCategTechIdTech + "= "+Id1;
 
         Cursor cursor = dataB1.rawQuery(query, null);
-
         int idInterventColumnIndex = cursor.getColumnIndex(InterCategTechIdInterv );
         int idCategColumnIndex = cursor.getColumnIndex(InterCategTechIdCateg);
-
-
         while (cursor.moveToNext())
         {
             int currentInterventionId = cursor.getInt( idInterventColumnIndex );
@@ -127,8 +121,6 @@ public class InterventionNotDone extends AppCompatActivity {
             showCategory(currentCategoryId );
         }
         cursor.close();
-
-
     }
     private void showUndoneIntervention(int intervId)
     {   SQLiteOpenHelper db = new MyDataBase(this);
@@ -156,20 +148,13 @@ public class InterventionNotDone extends AppCompatActivity {
     {
         SQLiteOpenHelper db2 = new MyDataBase(this);
         SQLiteDatabase dataB2 = db2.getReadableDatabase();
-
-
-        String query = "SELECT * FROM " +categories +
-                " WHERE "+IdCateg+ "= "+categId;
+        String query = "SELECT * FROM " +categories + " WHERE "+IdCateg+ "= "+categId;
 
 
         Cursor cursor =dataB2.rawQuery(query, null);
-
         int categoryNameColumnIndex = cursor.getColumnIndex(NameCateg);
-
         while (cursor.moveToNext())
-        {
-
-            String currentCategoryName = cursor.getString( categoryNameColumnIndex );
+        { String currentCategoryName = cursor.getString( categoryNameColumnIndex );
             //  tvWork.append(currentCategoryName + "\n");
         }
         cursor.close();
@@ -179,13 +164,9 @@ public class InterventionNotDone extends AppCompatActivity {
     {
         SQLiteOpenHelper db3 = new MyDataBase(this);
         SQLiteDatabase dataB3 = db3.getReadableDatabase();
+        String query = "SELECT * FROM " +Intervention + " WHERE " + TitreInterv+ " ='" + intervTitle+"'";
 
-        String query = "SELECT * FROM " +Intervention +
-                " WHERE " + TitreInterv+ " ='" + intervTitle+"'";
-
-        Cursor cursor = dataB3.rawQuery(query, null);
-
-        int idColumnIndex = cursor.getColumnIndex(IdIntev);
+        Cursor cursor = dataB3.rawQuery(query, null);int idColumnIndex = cursor.getColumnIndex(IdIntev);
         int currentInterventionId=-1;
 
         while (cursor.moveToNext())
@@ -193,15 +174,10 @@ public class InterventionNotDone extends AppCompatActivity {
             currentInterventionId = cursor.getInt(idColumnIndex);
         }
         cursor.close();
-
-
+//***************
         SQLiteOpenHelper db4 = new MyDataBase(this);
         SQLiteDatabase dataB4 = db3.getWritableDatabase();
-
-        String  SQL_UPDATE_Intervention_TABLE =  "UPDATE "+Intervention +
-                " SET "+ ExecInterv +"= 1 "+
-                "WHERE " + IdIntev +"="+currentInterventionId;
-
+        String  SQL_UPDATE_Intervention_TABLE =  "UPDATE "+Intervention + " SET "+ ExecInterv +"= 1 "+ "WHERE " + IdIntev +"="+currentInterventionId;
         Log.i("JERICHO","Done id:"+currentInterventionId);
         // Execute the SQL statement
         dataB4.execSQL(SQL_UPDATE_Intervention_TABLE );
@@ -210,7 +186,7 @@ public class InterventionNotDone extends AppCompatActivity {
 
     }
 
-    public String findClientNumber(String selectedItem)
+    public String GetClientNumber(String selectedItem)
     {
         SQLiteOpenHelper db5 = new MyDataBase(this);
         SQLiteDatabase dataB5 = db5.getReadableDatabase();
@@ -237,9 +213,9 @@ public class InterventionNotDone extends AppCompatActivity {
         return "";
     }
 
-    public void dialPhoneNumber(String phoneNumber)
+    public void CallPhoneNumber(String phoneNumber)
     {
-        Log.i("AEW","My num2: "+phoneNumber);
+        Log.i("new","num1: "+phoneNumber);
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNumber));
         if (intent.resolveActivity(getPackageManager()) != null)

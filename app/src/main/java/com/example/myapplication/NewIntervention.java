@@ -19,7 +19,6 @@ public class NewIntervention extends AppCompatActivity implements View.OnClickLi
    private EditText  NomClient1, MobileClient1, EtTitre, EtDate, EtDescription,EtExecInterv;
    private Button bAdd, bReturn3, bDelete1, bSave,bUpdate1, bRead4;
    private TextView TextView7;
-
    //****************
 //Intervention
     String Intervention= TablesData.INTERVENTION_TABLE;
@@ -175,23 +174,21 @@ public class NewIntervention extends AppCompatActivity implements View.OnClickLi
 
         ContentValues values = new ContentValues();
         values.put(NomClient, "Nouha");
-        values.put(MobileClient, 0725634543);
+        values.put(MobileClient, 0775734523);
         values.put(TitreInterv,"Inetervention1" );
         values.put(DateInterv ,"10/5/2020" );
-        values.put(Description,"Intervention 1 description here" );
+        values.put(Description,"Intervention 1 description " );
         values.put(ExecInterv,0 );
 
         currentId=dataB.insert(Intervention, null, values);
-
-
-        //add this intervention to list
+        //add this intervention to the list
         TablesData.addIntervention(currentId);
 
         values.put(NomClient, "Nassim");
-        values.put(MobileClient, 0725634543);
+        values.put(MobileClient, 0765674542);
         values.put(TitreInterv,"Intervention2" );
         values.put(DateInterv,"10/5/2020" );
-        values.put(Description,"Intervention 2 description here" );
+        values.put(Description,"Intervention 2 description " );
         values.put(ExecInterv, 0 );
 
         currentId= dataB.insert(Intervention, null, values);

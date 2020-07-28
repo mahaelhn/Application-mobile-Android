@@ -20,8 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class ViewIntervention extends AppCompatActivity implements View.OnClickListener {
-
-
     //*******
     private ListView lvTechnicians, lvInterventions, lvCategories;
     private TextView TVTechName, TVInterventionName, TVCategoryName;
@@ -113,9 +111,7 @@ public class ViewIntervention extends AppCompatActivity implements View.OnClickL
         {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Get the selected item text from ListView
                 String selectedItem = (String) parent.getItemAtPosition(position);
-                // Display the selected item text on TextView
                 tvTech.setText("" + selectedItem);
             }
         });
@@ -205,7 +201,6 @@ public class ViewIntervention extends AppCompatActivity implements View.OnClickL
         cursor.close();
 
     }
-
     private void addInterventionItem(String name) {
         IntervList.add(name);
         adapterInterv.notifyDataSetChanged();
